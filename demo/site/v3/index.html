@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acme Store</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 40px; max-width: 520px; color: #1a1a1a; }
+      .product { border: 1px solid #e3e3e3; border-radius: 14px; padding: 24px; }
+      .amount { font-size: 20px; color: #555; }
+      .cta { font-size: 16px; padding: 12px 18px; border: 0; border-radius: 10px; background: #8a1d6b; color: #fff; cursor: pointer; }
+      .toast { margin-top: 16px; min-height: 24px; color: #0a7d28; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <h1>Acme Store</h1>
+    <!--
+      v3: the SEMANTIC case. The button has been relabelled "Add to bag" - so
+      even a role + accessible-name locator for "Add to cart" breaks. Only a
+      planner that understands intent (the Claude planner) can re-map "the add
+      to cart button" onto "Add to bag". Try:
+        SITE_VERSION=v3 PORT=5050 node demo/site/server.mjs &
+        npm run healwright -- run demo/tests/store.yaml --planner claude
+    -->
+    <section class="product" data-sku="hoodie-blue">
+      <h2>Blue Hoodie</h2>
+      <p class="amount">$49.00</p>
+      <button class="cta cta--primary" data-qa="bag-add" onclick="addToBag()">
+        <span>Add to bag</span>
+      </button>
+    </section>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script>
+      function addToBag() {
+        document.querySelector('.toast').textContent = 'Added to cart';
+      }
+    </script>
+  </body>
+</html>

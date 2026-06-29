@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acme Store</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 40px; max-width: 520px; color: #1a1a1a; }
+      .product { border: 1px solid #e3e3e3; border-radius: 14px; padding: 24px; }
+      .amount { font-size: 20px; color: #555; }
+      .cta { font-size: 16px; padding: 12px 18px; border: 0; border-radius: 10px; background: #117a3d; color: #fff; cursor: pointer; }
+      .toast { margin-top: 16px; min-height: 24px; color: #0a7d28; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <h1>Acme Store</h1>
+    <!--
+      v2: a refactor. The data-testid is gone (replaced by data-qa), the classes
+      changed, the markup is restructured and the text is wrapped in a span.
+      The visible label is still "Add to cart" - so a cached testid selector
+      breaks, but the element is still findable by role + accessible name.
+    -->
+    <section class="product" data-sku="hoodie-blue">
+      <h2>Blue Hoodie</h2>
+      <p class="amount">$49.00</p>
+      <button class="cta cta--primary" data-qa="cart-add" onclick="addToBag()">
+        <span>Add to cart</span>
+      </button>
+    </section>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script>
+      function addToBag() {
+        document.querySelector('.toast').textContent = 'Added to cart';
+      }
+    </script>
+  </body>
+</html>

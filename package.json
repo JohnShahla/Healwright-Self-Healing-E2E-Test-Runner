@@ -1,0 +1,58 @@
+{
+  "name": "healwright",
+  "version": "0.1.0",
+  "description": "Self-healing end-to-end tests: write browser tests in plain English; when the page's markup changes and a selector breaks, an LLM agent repairs it automatically.",
+  "type": "module",
+  "bin": {
+    "healwright": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "prehealwright": "tsc",
+    "healwright": "node dist/index.js",
+    "demo": "bash demo/run-demo.sh",
+    "demo:visual": "bash demo/run-visual.sh",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "ai",
+    "agent",
+    "self-healing",
+    "anthropic",
+    "claude"
+  ],
+  "license": "MIT",
+  "author": "John Shahla",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnShahla/Healwright-Self-Healing-E2E-Test-Runner.git"
+  },
+  "homepage": "https://github.com/JohnShahla/Healwright-Self-Healing-E2E-Test-Runner#readme",
+  "bugs": "https://github.com/JohnShahla/Healwright-Self-Healing-E2E-Test-Runner/issues",
+  "files": [
+    "dist",
+    "src",
+    "demo",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0",
+    "dotenv": "^17.4.2",
+    "js-yaml": "^4.1.0",
+    "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

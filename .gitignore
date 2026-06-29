@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.healwright/
+demo/.visual/
+demo/visual-report.html
+.env
+*.log
+.DS_Store
+IDEAS.md
